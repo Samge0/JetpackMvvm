@@ -17,6 +17,11 @@ import me.hgj.jetpackmvvm.network.manager.NetworkStateManager
 abstract class BaseVmActivity<VM : BaseViewModel> : AppCompatActivity() {
 
     /**
+     * 是否需要使用该mvvm框架，为了兼容老代码的activity
+     */
+    private var isUserMvvm = true
+
+    /**
      * 是否需要使用DataBinding 供子类BaseVmDbActivity修改，用户请慎动
      */
     private var isUserDb = false
@@ -33,6 +38,9 @@ abstract class BaseVmActivity<VM : BaseViewModel> : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if(!isUserMvvm || layoutId() == 0){
+            return
+        }
         if (!isUserDb) {
             setContentView(layoutId())
         } else {
@@ -101,6 +109,10 @@ abstract class BaseVmActivity<VM : BaseViewModel> : AppCompatActivity() {
 
     fun userDataBinding(isUserDb: Boolean) {
         this.isUserDb = isUserDb
+    }
+
+    fun useMvvm(isUserMvvm: Boolean) {
+        this.isUserMvvm = isUserMvvm
     }
 
     /**
