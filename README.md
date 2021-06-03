@@ -1,3 +1,17 @@
+本fork：
+[![](https://jitpack.io/v/Samge0/JetpackMvvm.svg)](https://jitpack.io/#Samge0/JetpackMvvm)
+- ** 在app's build.gradle中添加依赖**
+
+```
+dependencies {
+  ...
+  implementation 'com.github.Samge0:JetpackMvvm:1.2.3'
+}
+```
+
+
+源项目信息：
+
 [![Platform][1]][2] [![GitHub license][3]][4]  [![GitHub license][5]][6] 
 
 [1]:https://img.shields.io/badge/platform-Android-blue.svg  
